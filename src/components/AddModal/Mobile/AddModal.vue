@@ -3,6 +3,7 @@
    <div class="am-parent">
    <input v-model="cardname" placeholder="Card Name" :class="{'cardname': true, 'errorname': this.errorname}"/>
    <button class="addbtn" @click="addCard">Add Card</button>
+   <div class="am-close" @click="closeAM">X</div>
    </div>
    </div>
 </template>
@@ -33,6 +34,9 @@ export default {
       else{
         this.errorname = true
       }  
+    },
+    closeAM(){
+      this.$store.commit('toggleAddModal',false)   
     }
   },
   computed:{
@@ -61,7 +65,7 @@ export default {
     left: 50%;
     transform: translate(-50%,-50%);
     border-radius:5px;
-    padding:30px;
+    padding:40px 30px;
 }
 .cardname{
     border-width: 0px 0px 1px 0px;
@@ -85,5 +89,12 @@ export default {
 }
 .cardname.errorname{
 border-color:red;
+}
+.am-close{
+  position: absolute;
+    right: 9px;
+    top: 7px;
+    font-weight: 600;
+    padding: 4px;
 }
 </style>

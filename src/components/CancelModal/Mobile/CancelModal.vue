@@ -23,6 +23,9 @@ export default {
     cancelCard(){
       this.$store.commit('cancelCard')
       this.$store.commit('toggleCancel',false)
+    },
+    closeModal(){
+      this.$store.commit('toggleCancel',false)
     }
   },
   computed:{
